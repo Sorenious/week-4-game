@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>simple crystal game</title>
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!--<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="assets/javascript/game.js"></script>
+
+</head>
+<body>
+  <div id="container">
+    <div id="outer-main">
+      <h1>Price to Pay: <span id="number-to-guess"></span> (Exact change only)</h1>
+      <button id="restock">Restock Items</button>
+      <div id="main">
+        <div id="item-prem" class="item-imgs">Price: <span id="premPrc" class="number-to-guess"></span></div>
+        <div id="item-med" class="item-imgs">Price: <span id="medPrc" class="number-to-guess"></span></div>
+        <div id="item-small-left" class="item-imgs">Price: <span id="smlLftPrc" class="number-to-guess"></span></div>
+        <div id="item-small-right" class="item-imgs">Price: <span id="smlRghtPrc" class="number-to-guess"></span></div>
+      </div>
+    </div>
+    <h2 class="float-left">Money Gathered: <span id="money"></span><br><br>(Exact change only)</h2>
+    <section id="rupees">
+      <map name="rupee-map" id="rupee-map">
+        <area class="rupee" id="green-rupee" shape="rect" coords="" href="green.htm" alt="Green Rupee">
+        <area class="rupee" id="blue-rupee" shape="rect" coords="" href="blue.htm" alt="Blue Rupee">
+        <area class="rupee" id="red-rupee" shape="rect" coords="" href="red.htm" alt="Red Rupee">
+        <area class="rupee" id="orange-rupee" shape="rect" coords="" href="orange.htm" alt="Orange Rupee">
+      </map>
+      <img id="rupeeImg" src="assets/images/rupees_rotate.gif" usemap="#rupee-map">
+    </section>
+    <h2 class="float-right">Items Bought: <span id="bought"></span><br><br>Premium Items: <span id="premium"></span><br><br>Failed to Buy: <span id="fail"></span></h2>
+  </div>
+
+  <!-- JAVASCRIPT  -->
+  <!-- ========================================= -->
+  
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+
+    var smallItems = ["assets/images/items/Arrow.png", "assets/images/items/Bomb.png", "assets/images/items/Deku_Nut.png", "assets/images/items/Deku_Seeds.png", "assets/images/items/Deku_Shield.png", "assets/images/items/Deku_Stick.png", "assets/images/items/Fairy_Slingshot.png", "assets/images/items/Keaton_Mask.png", "assets/images/items/Blue_Potion.png", "assets/images/items/Red_Potion.png", "assets/images/items/Green_Potion.png", "assets/images/items/Bombchu.png", "assets/images/items/Fairy_Ocarina.png", "assets/images/items/Kokiri_Tunic.png", "assets/images/items/Goron_Tunic.png", "assets/images/items/Zora_Tunic.png", "assets/images/items/Gold_Skulltula_Token.png"]
+    var medItems = ["assets/images/medium/Bomb_Bag.png", "assets/images/medium/Boomerang.png", "assets/images/medium/Hookshot.png", "assets/images/medium/Hylian_Shield.png", "assets/images/medium/Iron_Boots.png", "assets/images/medium/Kokiri_Sword.png", "assets/images/medium/Mask_of_Truth.png", "assets/images/medium/Ocarina_of_Time.png", "assets/images/medium/Piece_of_Heart.png"]
+    var premItems = ["assets/images/premium/Fire_Arrow.png", "assets/images/premium/Ice_Arrow.png", "assets/images/premium/Light_Arrow.png", "assets/images/premium/Goron_Bracelet.png", "assets/images/premium/Heart_Container.png", "assets/images/premium/Hero_Bow.png", "assets/images/premium/Hover_Boots.png", "assets/images/premium/Master_Sword.png", "assets/images/premium/Mirror_Shield.png", "assets/images/premium/premium_ocarina.png"]
+
+    // Convoluted work-around to create dynamic coords for the rupee map area
+    var rupeeIDs = ["#green-rupee", "#blue-rupee", "#red-rupee", "#orange-rupee"];
+    var rupeeGreen = ("0,0," + Math.floor($("#rupeeImg").width()/4) + "," + ($("#rupeeImg").height()));
+    var rupeeBlue = (Math.floor($("#rupeeImg").width()/4) + ",0," + Math.floor($("#rupeeImg").width()/2) + "," + ($("#rupeeImg").height()));
+    var rupeeRed = (Math.floor($("#rupeeImg").width()/2) + ",0," + (Math.floor($("#rupeeImg").width()/4)*3) + "," + ($("#rupeeImg").height()));
+    var rupeeOrange = (Math.floor(($("#rupeeImg").width()/4)*3) + ",0," + ($("#rupeeImg").width()) + "," + ($("#rupeeImg").height()));
+    var rupeeCoords = [rupeeGreen, rupeeBlue, rupeeRed, rupeeOrange];
+
+    // Fill the map area coords for the rupees
+    for (var i = 0; i < rupeeCoords.length; i++) {
+      //console.log(rupeeIDs[i]);
+      $(rupeeIDs[i]).attr("coords", rupeeCoords[i]);
+      //console.log(rupeeCoords[i]);
+    }
+
+  var targetNumber = Math.floor(Math.random() * 102) + 19;
+  var premPrice = Math.floor(Math.random() * 102) + 19;
+  var medPrice = Math.floor(Math.random() * 102) + 19;
+  var smallLeftPrice = Math.floor(Math.random() * 102) + 19;
+  var smallRightPrice = Math.floor(Math.random() * 102) + 19;
+
+  $(".number-to-guess").text(targetNumber);
+  $("#premPrc").text(premPrice);
+  $("#medPrc").text(medPrice);
+  $("#smlLftPrc").text(smallLeftPrice);
+  $("#smlRghtPrc").text(smallRightPrice);
+
+
+  var moneyCounter = 0;
+  var premCounter = 0;
+  var boughtCounter = 0;
+  var failCounter = 0;
+
+  $("#money").text(moneyCounter);
+  $("#premium").text(premCounter);
+  $("#bought").text(boughtCounter);
+  $("#fail").text(failCounter);
+
+  
+
+  // Next we create a for loop to create crystals for every numberOption.
+  for (var i = 0; i < rupeeIDs.length; i++) {
+
+    /* For each iteration, we will create an imageCrystal
+    var imageCrystal = $("<img>");
+    var crystalClass = ("crystal-img-" + (i+1))
+
+    // First each crystal will be given the class ".crystal-image".
+    // This will allow the CSS to take effect.
+    imageCrystal.addClass("crystal-image");
+    imageCrystal.addClass(crystalClass);
+
+    // Each imageCrystal will be given a src link to the crystal image
+    imageCrystal.attr("src", "http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg");*/
+
+    // Each imageCrystal will be given a data attribute called data-crystalValue.
+    // This data attribute will be set equal to the array value.
+    $(rupeeIDs[i]).attr("data-rupeevalue", (Math.floor(Math.random() * 12) + 1));
+
+    // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
+    //$("#crystals").append(imageCrystal);
+  }
+
+  // This time, our click event applies to every single crystal on the page. Not just one.
+  $(".rupee").on("click", function(e) {
+    e.preventDefault();
+    console.log("A");
+
+    $("#item-prem").css("background-image", "url(" + premItems[4] + ")");
+
+    // Determining the rupee's value requires us to extract the value from the data attribute.
+    // Using the $(this) keyword specifies that we should be extracting the rupee value of the clicked rupee.
+    // Using the .attr("data-rupeevalue") allows us to grab the value out of the "data-rupeevalue" attribute.
+    // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
+    
+    var rupeeValue = ($(this).attr("data-rupeevalue"));
+    rupeeValue = parseInt(rupeeValue);
+    // We then add the rupeeValue to the user's "counter" which is a global variable.
+    // Every click, from every rupee adds to the global counter.
+    moneyCounter += rupeeValue;
+    $("#money").text(moneyCounter);
+    console.log(rupeeValue);
+
+    if (moneyCounter === premPrice) {
+      alert("You got the premium item! Good deal.");
+      boughtCounter++
+      premCounter++
+      $("#bought").text(boughtCounter);
+    } else if (moneyCounter > premPrice && (moneyCounter < medPrice || moneyCounter < smallLeftPrice || moneyCounter < smallRightPrice)) {
+      alert("Well, you missed the premium item, but you still have a chance at one of the others.");
+    } else if (moneyCounter > targetNumber) {
+      alert("You lose!!");
+      failCounter++
+      $("#fail").text(failCounter);
+    }
+
+  });
+
+  $("#restock").on("click", function() {
+    moneyCounter = 0;
+    premPrice = Math.floor(Math.random() * 102) + 19;
+    medPrice = Math.floor(Math.random() * 102) + 19;
+    smallLeftPrice = Math.floor(Math.random() * 102) + 19;
+    smallRightPrice = Math.floor(Math.random() * 102) + 19;
+
+    $(".number-to-guess").text(targetNumber);
+    $("#premPrc").text(premPrice);
+    $("#medPrc").text(medPrice);
+    $("#smlLftPrc").text(smallLeftPrice);
+    $("#smlRghtPrc").text(smallRightPrice);
+
+    $("#item-prem").css("background-image", "url(" + premItems[Math.floor(Math.random() * premItems.length)] + ")");
+    $("#item-med").css("background-image", "url(" + medItems[Math.floor(Math.random() * medItems.length)] + ")");
+    $("#item-small-left").css("background-image", "url(" + smallItems[Math.floor(Math.random() * smallItems.length)] + ")");
+    $("#item-small-right").css("background-image", "url(" + smallItems[Math.floor(Math.random() * smallItems.length)] + ")");
+
+  });
+
+  window.addEventListener('resize', function(){
+    rupeeGreen = ("0,0," + Math.floor($("#rupeeImg").width()/4) + "," + ($("#rupeeImg").height()));
+    rupeeBlue = (Math.floor($("#rupeeImg").width()/4) + ",0," + Math.floor($("#rupeeImg").width()/2) + "," + ($("#rupeeImg").height()));
+    rupeeRed = (Math.floor($("#rupeeImg").width()/2) + ",0," + (Math.floor($("#rupeeImg").width()/4)*3) + "," + ($("#rupeeImg").height()));
+    rupeeOrange = (Math.floor(($("#rupeeImg").width()/4)*3) + ",0," + ($("#rupeeImg").width()) + "," + ($("#rupeeImg").height()));
+    for (var i = 0; i < rupeeCoords.length; i++) {
+      //console.log(rupeeIDs[i]);
+      $(rupeeIDs[i]).attr("coords", rupeeCoords[i]);
+      //console.log(rupeeCoords[i]);
+    }
+  }, true);
+});
+  </script>
+</body>
+</html>

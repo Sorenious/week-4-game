@@ -1,0 +1,205 @@
+header, hgroup, nav, footer, figure, figcaption, aside, section, article {display: block;}
+
+html, body {height: 100%;}
+
+body {background-color: #3F0066; 
+      /*background-image: linear-gradient(to bottom, #333333, #330066);*/
+      color: #00AA00; 
+      /*text-shadow: -1px -1px 0px #1BB04C, 1px 1px 0px #70AF23, 1px -1px 0px #1BB04C, -1px 1px 0px #70AF23;*/
+      font-family: Aharoni, Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      margin-right: auto; 
+      margin-left: auto; 
+      margin: 0 auto;
+    }
+
+header {background-color:#9CCB19; 
+        color:#AAAAAA;
+        text-shadow: -1px -1px 1px #000000, 4px 4px 2px #000000; 
+        background-image: url(../images/grasstop.png); 
+        background-size: 160px 60px;
+        height: 60px;
+        margin: 0px;
+        text-align: center;
+      }
+
+h1 {margin: 5px 0px 0px 0px;
+    padding: 10px; 
+    font-family: Rockwell, Georgia, "Times New Roman", serif;}
+
+#restock {
+  float: right;
+  position: absolute;
+  top: 2.5%;
+  right: 16.5%;
+  background-color: #6E4727; /* Green */
+  border: 2px solid #666;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+nav {color: #999999;
+    text-shadow: 1px 1px 1px #3C0400;
+    padding: 20px 5px;
+    font-weight: bold;    
+    background-image: url(../images/dirt.png);
+    background-size: 160px;
+    text-align: center;
+  }
+
+#container {
+  background-image: url(../images/shop_background.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.item-imgs {
+  width: 20%;
+  height: 40%;
+}
+
+#item-prem {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-image: url(../images/premium/Mirror_Shield.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#item-med {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  background-image: url(../images/medium/Bomb_Bag.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#item-small-left {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-image: url(../images/items/Bomb.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#item-small-right {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-image: url(../images/items/Deku_Nut.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#outer-main {
+  margin: 0px auto;
+  padding: 5px;
+  height: 53%;
+  width: 90%;
+}
+
+#main {
+  margin: 0 auto;
+  padding: 0px;
+  height: 100%;
+  width: 90%;
+  position: relative;
+  clear: both;
+}
+
+#rupees {
+  margin: 0 auto;
+  padding: 0px;
+  width: 40%;
+  height: 40%;
+}
+
+#rupeeImg {
+  width: 100%;
+  height: 100%;
+}
+
+.float-left {
+  position: absolute;
+  bottom: 6%;
+  left: 5%;
+  color: #B00448; 
+  text-shadow: -1px -1px 0px #2B4C7D, 1px 1px 0px #B4F4FA, 1px -1px 0px #B4F4FA, -1px 1px 0px #2B4C7D;
+}
+
+.float-right {
+  text-align: right;
+  position: absolute;
+  bottom: 6%;
+  right: 10%;
+  color: #B00448; 
+  text-shadow: -1px -1px 0px #B4F4FA, 1px 1px 0px #2B4C7D, 1px -1px 0px #B4F4FA, -1px 1px 0px #2B4C7D;
+}
+
+
+
+@media only screen and (max-width: 960px) {
+body {margin: 0 auto;
+      width: 80%;}
+}
+
+@media only screen and (max-width: 768px) {
+body {margin: 0 auto;
+      width: 90%;}
+#wrapper {min-width: 0; 
+    width: auto;}
+#content {margin-left: 0;
+          padding: 15px;}
+nav {float: none;
+     width: auto;
+     padding: 0;}
+nav ul {text-align: center;}
+nav li {display: inline;
+  padding: 0 0.75em;}
+footer {margin-left: 0;}
+}
+
+@media only screen and (max-width: 480px) {
+body {margin: 0;
+      width: 100%;}
+#wrapper {min-width: 0; 
+    width: auto;
+    margin: 0;}
+#content img {float: none;
+        padding: 0;
+        margin: 0.1em;}
+#content ul {list-style-position:outside;}
+#mobile {display: inline;}
+#desktop {display: none;}
+h1 {margin: 0;
+    font-size: 1.5em;
+    padding-left: 0.3em;}
+
+nav ul {padding: 0;}
+nav li {display: block;
+  margin: 0;
+  border-bottom: 2px solid #5E2605;}
+nav a {display: block;}
+footer {margin-left: 0;}
+label {float: none;
+       text-align: left;}
+#gallery {display: none;}
+}
