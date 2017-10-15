@@ -4,10 +4,11 @@ html, body {height: 100%;}
 
 body {background-color: #3F0066; 
       /*background-image: linear-gradient(to bottom, #333333, #330066);*/
-      color: #00AA00; 
-      /*text-shadow: -1px -1px 0px #1BB04C, 1px 1px 0px #70AF23, 1px -1px 0px #1BB04C, -1px 1px 0px #70AF23;*/
-      font-family: Aharoni, Arial, Helvetica, sans-serif;
+      color: #CCCC00; 
+      /*text-shadow: -1px -1px 0px #C00, 1px 1px 0px #C00, 1px -1px 0px #C00, -1px 1px 0px #C00;*/
+      font-family: 'Handlee', Aharoni, Arial, Helvetica, sans-serif;
       font-weight: bold;
+      font-size: 1em;
       display: flex;
       flex-direction: column;
       width: 90%;
@@ -26,15 +27,15 @@ header {background-color:#9CCB19;
         text-align: center;
       }
 
-h1 {margin: 5px 0px 0px 0px;
+h2 {margin: 5px 0px 0px 0px;
     padding: 10px; 
-    font-family: Rockwell, Georgia, "Times New Roman", serif;}
+    font-family: 'MedievalSharp', Rockwell, Georgia, "Times New Roman", cursive;}
 
 #restock {
   float: right;
   position: absolute;
-  top: 2.5%;
-  right: 16.5%;
+  bottom: -45%;
+  left: 0.5%;
   background-color: #6E4727; /* Green */
   border: 2px solid #666;
   color: white;
@@ -44,15 +45,6 @@ h1 {margin: 5px 0px 0px 0px;
   display: inline-block;
   font-size: 16px;
 }
-
-nav {color: #999999;
-    text-shadow: 1px 1px 1px #3C0400;
-    padding: 20px 5px;
-    font-weight: bold;    
-    background-image: url(../images/dirt.png);
-    background-size: 160px;
-    text-align: center;
-  }
 
 #container {
   background-image: url(../images/shop_background.png);
@@ -64,16 +56,31 @@ nav {color: #999999;
   height: 100%;
 }
 
+#messages {
+  margin: 0 auto;
+  text-align: center;
+  color: #00AA00; 
+  text-shadow: -.25px -.25px 0px #1BB04C, .25px .25px 0px #70AF23, .25px -.25px 0px #1BB04C, -.25px .25px 0px #70AF23;
+  width: 40%;
+}
+
 .item-imgs {
   width: 20%;
   height: 40%;
+}
+
+.price {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #CCCC00;
 }
 
 #item-prem {
   position: absolute;
   top: 10px;
   left: 10px;
-  background-image: url(../images/premium/Mirror_Shield.png);
+  background-image: url();
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -83,7 +90,7 @@ nav {color: #999999;
   position: absolute;
   top: 15px;
   right: 10px;
-  background-image: url(../images/medium/Bomb_Bag.png);
+  background-image: url();
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -93,7 +100,7 @@ nav {color: #999999;
   position: absolute;
   bottom: 10px;
   left: 10px;
-  background-image: url(../images/items/Bomb.png);
+  background-image: url();
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -103,7 +110,7 @@ nav {color: #999999;
   position: absolute;
   bottom: 10px;
   right: 10px;
-  background-image: url(../images/items/Deku_Nut.png);
+  background-image: url();
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -112,8 +119,9 @@ nav {color: #999999;
 #outer-main {
   margin: 0px auto;
   padding: 5px;
-  height: 53%;
+  height: 52%;
   width: 90%;
+  position: relative;
 }
 
 #main {
@@ -121,8 +129,9 @@ nav {color: #999999;
   padding: 0px;
   height: 100%;
   width: 90%;
-  position: relative;
-  clear: both;
+  position: absolute;
+  left: 5%;
+  top: 16%;
 }
 
 #rupees {
@@ -137,21 +146,25 @@ nav {color: #999999;
   height: 100%;
 }
 
-.float-left {
+#float-left {
   position: absolute;
   bottom: 6%;
   left: 5%;
   color: #B00448; 
-  text-shadow: -1px -1px 0px #2B4C7D, 1px 1px 0px #B4F4FA, 1px -1px 0px #B4F4FA, -1px 1px 0px #2B4C7D;
+  text-shadow: -.4px -.4px 0px #2B4C7D, .4px .4px 0px #B4F4FA, .4px -.4px 0px #B4F4FA, -.4px .4px 0px #2B4C7D;
 }
 
-.float-right {
+#float-right {
   text-align: right;
   position: absolute;
   bottom: 6%;
   right: 10%;
   color: #B00448; 
-  text-shadow: -1px -1px 0px #B4F4FA, 1px 1px 0px #2B4C7D, 1px -1px 0px #B4F4FA, -1px 1px 0px #2B4C7D;
+  text-shadow: -.4px -.4px 0px #B4F4FA, .4px .4px 0px #2B4C7D, .4px -.4px 0px #B4F4FA, -.4px .4px 0px #2B4C7D;
+}
+
+.counters {
+  font-weight: normal;
 }
 
 
