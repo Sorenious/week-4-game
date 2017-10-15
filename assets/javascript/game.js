@@ -55,6 +55,8 @@
       $("#item-small-left").css("background-image", "url(" + smallItems[Math.floor(Math.random() * smallItems.length)] + ")");
       $("#item-small-right").css("background-image", "url(" + smallItems[Math.floor(Math.random() * smallItems.length)] + ")");
 
+      $("#peek").css("display", "none");
+
       moneyCounter = 0;
       premPrice = Math.floor(Math.random() * 102) + 19;
       medPrice = Math.floor(Math.random() * 102) + 19;
@@ -115,7 +117,8 @@
         rupeeValue = parseInt(rupeeValue);
 
         $($(this).attr("rupeeColor")).text(rupeeValue);
-        console.log($(this).attr("rupeeColor"));
+
+        $("#peek").css("display", "inline-block");
         // We then add the rupeeValue to the user's "counter" which is a global variable.
         // Every click, from every rupee adds to the global counter.
         moneyCounter += rupeeValue;
@@ -165,6 +168,14 @@
     $("#restock").on("click", function() {
       gameSetup();
 
+    });
+
+    $("#peek").on("click", function() {
+      if ($("#rupee-values").css("display") === "none") {
+        $("#rupee-values").css("display", "inline-block");
+      } else {
+        $("#rupee-values").css("display", "none");
+      }
     });
 
     window.addEventListener('resize', function(){

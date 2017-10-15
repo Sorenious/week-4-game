@@ -32,10 +32,9 @@ h2 {margin: 5px 0px 0px 0px;
     font-family: 'MedievalSharp', Rockwell, Georgia, "Times New Roman", cursive;}
 
 #restock {
-  float: right;
   position: absolute;
-  bottom: -45%;
-  left: 0.5%;
+  bottom: 21%;
+  left: 6%;
   background-color: #6E4727; /* Green */
   border: 2px solid #666;
   color: white;
@@ -44,6 +43,20 @@ h2 {margin: 5px 0px 0px 0px;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+
+#peek {
+  position: absolute;
+  bottom: 20.8%;
+  left: 16%;
+  border: 2px solid #666;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: none;
+  font-size: 16px;
+  opacity: .5;
 }
 
 #container {
@@ -137,6 +150,10 @@ h2 {margin: 5px 0px 0px 0px;
 
 .rupee-value {
   display: inline;
+}
+
+#rupee-values {
+  display: none;
 }
 
 #rupee-value-1 {
