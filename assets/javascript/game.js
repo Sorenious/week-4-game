@@ -1,21 +1,5 @@
   $(document).ready(function() {
 
-    function toggleFullScreen() {
-      var doc = window.document;
-      var docEl = doc.documentElement;
-
-      var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
-      var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
-
-      if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
-        requestFullScreen.call(docEl);
-      }
-      else {
-        cancelFullScreen.call(doc);
-      }
-    }
-    toggleFullScreen();
-
     var smallItems = ["assets/images/items/Arrow.png", "assets/images/items/Bomb.png", "assets/images/items/Deku_Nut.png", "assets/images/items/Deku_Seeds.png", "assets/images/items/Deku_Shield.png", "assets/images/items/Deku_Stick.png", "assets/images/items/Fairy_Slingshot.png", "assets/images/items/Keaton_Mask.png", "assets/images/items/Blue_Potion.png", "assets/images/items/Red_Potion.png", "assets/images/items/Green_Potion.png", "assets/images/items/Bombchu.png", "assets/images/items/Fairy_Ocarina.png", "assets/images/items/Kokiri_Tunic.png", "assets/images/items/Goron_Tunic.png", "assets/images/items/Zora_Tunic.png", "assets/images/items/Gold_Skulltula_Token.png"]
     var medItems = ["assets/images/medium/Bomb_Bag.png", "assets/images/medium/Boomerang.png", "assets/images/medium/Hookshot.png", "assets/images/medium/Hylian_Shield.png", "assets/images/medium/Iron_Boots.png", "assets/images/medium/Kokiri_Sword.png", "assets/images/medium/Mask_of_Truth.png", "assets/images/medium/Ocarina_of_Time.png", "assets/images/medium/Piece_of_Heart.png"]
     var premItems = ["assets/images/premium/Fire_Arrow.png", "assets/images/premium/Ice_Arrow.png", "assets/images/premium/Light_Arrow.png", "assets/images/premium/Goron_Bracelet.png", "assets/images/premium/Heart_Container.png", "assets/images/premium/Hero_Bow.png", "assets/images/premium/Hover_Boots.png", "assets/images/premium/Master_Sword.png", "assets/images/premium/Mirror_Shield.png", "assets/images/premium/premium_ocarina.png"]
