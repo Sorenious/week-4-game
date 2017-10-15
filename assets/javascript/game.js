@@ -69,6 +69,7 @@
       $("#medPrc").text(medPrice);
       $("#smlLftPrc").text(smallLeftPrice);
       $("#smlRghtPrc").text(smallRightPrice);
+      $(".rupee-value").text("");
 
       giveRupeesValues()
 
@@ -112,6 +113,9 @@
         
         var rupeeValue = ($(this).attr("data-rupeevalue"));
         rupeeValue = parseInt(rupeeValue);
+
+        $($(this).attr("rupeeColor")).text(rupeeValue);
+        console.log($(this).attr("rupeeColor"));
         // We then add the rupeeValue to the user's "counter" which is a global variable.
         // Every click, from every rupee adds to the global counter.
         moneyCounter += rupeeValue;

@@ -26,13 +26,14 @@
     <h2 id="float-left" class="counters">Money Gathered: <span id="money"></span><br><br>(Exact change only)</h2>
     <section id="rupees">
       <map name="rupee-map" id="rupee-map">
-        <area class="rupee" id="green-rupee" shape="rect" coords="" href="green.htm" alt="Green Rupee">
-        <area class="rupee" id="blue-rupee" shape="rect" coords="" href="blue.htm" alt="Blue Rupee">
-        <area class="rupee" id="red-rupee" shape="rect" coords="" href="red.htm" alt="Red Rupee">
-        <area class="rupee" id="orange-rupee" shape="rect" coords="" href="orange.htm" alt="Orange Rupee">
+        <area class="rupee" id="green-rupee" shape="rect" coords="" href="green.htm" alt="Green Rupee" rupeeColor=".green">
+        <area class="rupee" id="blue-rupee" shape="rect" coords="" href="blue.htm" alt="Blue Rupee" rupeeColor=".blue">
+        <area class="rupee" id="red-rupee" shape="rect" coords="" href="red.htm" alt="Red Rupee" rupeeColor=".red">
+        <area class="rupee" id="orange-rupee" shape="rect" coords="" href="orange.htm" alt="Orange Rupee" rupeeColor=".orange">
       </map>
       <img id="rupeeImg" src="assets/images/rupees_rotate.gif" usemap="#rupee-map">
     </section>
+    <section id="rupee-values"><div class="rupee-value green" id="rupee-value-1"></div><div class="rupee-value blue" id="rupee-value-2"></div><div class="rupee-value red" id="rupee-value-3"></div><div class="rupee-value orange" id="rupee-value-4"></div></section>
     <h2 id="float-right" class="counters">Items Bought: <span id="bought"></span><br><br>Premium Items: <span id="premium"></span><br><br>Failed to Buy: <span id="fail"></span></h2>
   </div>  
 

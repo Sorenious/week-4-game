@@ -4,8 +4,8 @@ html, body {height: 100%;}
 
 body {background-color: #3F0066; 
       /*background-image: linear-gradient(to bottom, #333333, #330066);*/
-      color: #CCCC00; 
-      /*text-shadow: -1px -1px 0px #C00, 1px 1px 0px #C00, 1px -1px 0px #C00, -1px 1px 0px #C00;*/
+      color: #CCCC00;
+      text-shadow: -1.25px -1.25px 0px #000, 1.25px 1.25px 0px #000, 1.25px -1.25px 0px #000, -1.25px 1.25px 0px #000;
       font-family: 'Handlee', Aharoni, Arial, Helvetica, sans-serif;
       font-weight: bold;
       font-size: 1em;
@@ -74,6 +74,7 @@ h2 {margin: 5px 0px 0px 0px;
   bottom: 0;
   left: 0;
   color: #CCCC00;
+  text-shadow: -1.25px -1.25px 0px #000, 1.25px 1.25px 0px #000, 1.25px -1.25px 0px #000, -1.25px 1.25px 0px #000;
 }
 
 #item-prem {
@@ -132,6 +133,30 @@ h2 {margin: 5px 0px 0px 0px;
   position: absolute;
   left: 5%;
   top: 16%;
+}
+
+.rupee-value {
+  display: inline;
+}
+
+#rupee-value-1 {
+  position: absolute;
+  left: 34.5%;
+}
+
+#rupee-value-2 {
+  position: absolute;
+  left: 44%;
+}
+
+#rupee-value-3 {
+  position: absolute;
+  left: 53.5%;
+}
+
+#rupee-value-4 {
+  position: absolute;
+  left: 64%;
 }
 
 #rupees {
