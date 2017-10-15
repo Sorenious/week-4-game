@@ -64,7 +64,7 @@
       smallRightPrice = Math.floor(Math.random() * 102) + 19;
 
       $("#message-one").html("What'll it be? You can only buy one, so choose wisely.");
-      $("#message-two").html("Click the rupees to get your money together.<br>What?<br>You don't know what each rupee is worth? Have you been hitting the Poe Spirits? *sigh* Just click them, you'll figure it out.");
+      $("#message-two").html("Click the rupees to get your money together and match the price of the item you want.<br>What?<br>You don't know what each rupee is worth? Have you been hitting the Poe Spirits? *sigh* Just click them, you'll figure it out.");
 
       $("#money").text(moneyCounter);
       $("#premPrc").text(premPrice);
